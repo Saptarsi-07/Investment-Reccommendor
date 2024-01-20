@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Classifier</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('https://companieslogo.com/img/orig/KOTAKBANK.NS-36440c5e.png?t=1593960269') no-repeat right center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #ffffff;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            background-color: #ffa9a9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        select {
+            appearance: none;
+            padding-right: 25px;
+            /* background: url('https://companieslogo.com/img/orig/KOTAKBANK.NS-36440c5e.png?t=1593960269') no-repeat right center; */
+            background-size: 18px;
+        }
+
+        .show{
+            text-align: center;
+            font-weight: 600;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Investment Classifier</h1>
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="text" name="age" required>
+
+        <label for="income">Income:</label>
+        <input type="text" name="income" required>
+
+        <label for="occupation">Occupation:</label>
+        <select name="occupation" id="" required>
+            <option value="Student">Student</option>
+            <option value="Manager">Manager</option>
+            <option value="Mid-level">Mid-level</option>
+            <option value="Executive">Executive</option>
+            <option value="Homemaker">Homemaker</option>
+            <option value="Entry Level">Student</option>
+        </select>
+
+        <label for="gender">Gender:</label>
+        <select name="gender" id="">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <label for="family_size">Family Size:</label>
+        <input type="text" name="family_size" required>
+
+        <label for="risk_appetite">Risk Appetite:</label>
+        <input type="text" name="risk_appetite" required>
+
+        <input type="submit" value="Predict">
+
+        <!-- {{ prediction }} -->
+        {% if prediction == 1 %}
+        <p class="show">Low Cap</p>
+        {% elif prediction == 2 %}
+        <p class="show">Mid Cap</p>
+        {% elif prediction == 3 %}
+        <p class="show">Large Cap</p>
+        {% endif %}
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+pandas
+numpy
+scikit-learn
+seaborn
+matplotlib
+Flask
+nltk
+spacy
+regex
+torch
+torchvision
+torchaudio
+transformers
+catboost
+pickle
