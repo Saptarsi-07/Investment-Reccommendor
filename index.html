@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goal Planner - Investment Strategy</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="container">
+        <h1>Goal Planner</h1>
+        <p class="subtitle">Plan investments to reach your goals: first car, vacation, and more.</p>
+    </header>
+
+    <main class="container grid">
+        <section class="card">
+            <h2>Your Goal</h2>
+            <form id="planner-form">
+                <div class="field">
+                    <label for="goalName">Goal name</label>
+                    <input id="goalName" name="goalName" type="text" placeholder="First Car" required />
+                </div>
+                <div class="field">
+                    <label for="targetAmount">Target amount (today's money)</label>
+                    <input id="targetAmount" name="targetAmount" type="number" min="0" step="0.01" placeholder="15000" required />
+                </div>
+                <div class="field">
+                    <label for="years">Time horizon (years)</label>
+                    <input id="years" name="years" type="number" min="0.25" step="0.25" placeholder="3" required />
+                </div>
+                <div class="field">
+                    <label for="currentSavings">Current savings</label>
+                    <input id="currentSavings" name="currentSavings" type="number" min="0" step="0.01" placeholder="2000" value="0" />
+                </div>
+                <div class="field">
+                    <label for="returnRate">Expected annual return (%)</label>
+                    <input id="returnRate" name="returnRate" type="number" min="0" max="30" step="0.1" placeholder="7" value="7" />
+                </div>
+                <div class="field">
+                    <label for="inflationRate">Annual inflation (%)</label>
+                    <input id="inflationRate" name="inflationRate" type="number" min="0" max="20" step="0.1" placeholder="3" value="3" />
+                </div>
+                <div class="field">
+                    <label for="frequency">Contribution frequency</label>
+                    <select id="frequency" name="frequency">
+                        <option value="monthly" selected>Monthly</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                </div>
+                <button class="primary" type="submit">Calculate Plan</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Recommended Plan</h2>
+            <div id="results" class="results hidden">
+                <div class="stats">
+                    <div class="stat"><span class="label">Inflation-adjusted target:</span> <span id="fvTarget" class="value">-</span></div>
+                    <div class="stat"><span class="label">Required contribution:</span> <span id="requiredContribution" class="value">-</span></div>
+                    <div class="stat"><span class="label">Total contributions:</span> <span id="totalContributions" class="value">-</span></div>
+                    <div class="stat"><span class="label">Expected portfolio growth:</span> <span id="growth" class="value">-</span></div>
+                </div>
+                <div class="recommendations" id="recommendations"></div>
+            </div>
+            <div id="emptyState" class="empty">Enter your details and click Calculate to see your plan.</div>
+        </section>
+
+        <section class="card full">
+            <h2>Projected Growth</h2>
+            <canvas id="growthChart" height="280" aria-label="Chart of portfolio growth" role="img"></canvas>
+        </section>
+    </main>
+
+    <footer class="container footer">
+        <p>For education only. Not financial advice.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha256-lMGRo0nDCQoRscMDcHt5tfnyZnVC24D6xRzP+F54qvA=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

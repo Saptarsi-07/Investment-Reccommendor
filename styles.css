@@ -1,0 +1,105 @@
+:root {
+    --bg: #0b0f17;
+    --card: #121826;
+    --muted: #9aa4b2;
+    --text: #e6edf6;
+    --brand: #6ea8fe;
+    --brand-strong: #4f8dff;
+    --accent: #22c55e;
+    --danger: #ef4444;
+    --border: #233044;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+header h1 {
+    margin: 0 0 .25rem 0;
+    font-size: 2rem;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.card.full { grid-column: 1 / -1; }
+
+.field { margin-bottom: .85rem; }
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: .35rem;
+}
+.field input, .field select {
+    width: 100%;
+    padding: .65rem .75rem;
+    background: #0f1524;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+}
+
+button.primary {
+    background: var(--brand);
+    color: #0b0f17;
+    font-weight: 700;
+    border: none;
+    padding: .75rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button.primary:hover { background: var(--brand-strong); }
+
+.results.hidden { display: none; }
+.empty { color: var(--muted); }
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .5rem .75rem;
+    margin-bottom: .75rem;
+}
+.stat .label { color: var(--muted); }
+.stat .value { font-weight: 700; }
+
+.recommendations {
+    border-top: 1px dashed var(--border);
+    padding-top: .75rem;
+}
+
+.footer { color: var(--muted); text-align: center; }
+
+canvas { width: 100%; }
+
