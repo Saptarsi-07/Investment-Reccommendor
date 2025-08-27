@@ -48,7 +48,7 @@ A simple, static website that helps users plan investments to achieve goals like
 - `r_per` is periodic rate (annual_return / periods_per_year), `n` is total periods.
 
 ### Disclaimer
-This is an educational tool and not financial advice. Investment returns are not guaranteed. Adjust assumptions to match your risk tolerance and local costs.
+This tool is for educational purposes only and is not financial advice. Use your own discretion and judgement. Investment returns are not guaranteed. Adjust assumptions to match your risk tolerance and local costs.
 
 ### Development
 Project is plain HTML/CSS/JS, no build step.

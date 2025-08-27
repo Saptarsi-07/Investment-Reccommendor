@@ -103,3 +103,13 @@ button.primary:hover { background: var(--brand-strong); }
 
 canvas { width: 100%; }
 
+.advisory {
+    margin-top: -.5rem;
+    margin-bottom: .5rem;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #fecaca;
+    border-radius: 10px;
+    padding: .75rem 1rem;
+}
+
