@@ -8,6 +8,10 @@ const requiredContributionEl = document.getElementById("requiredContribution");
 const totalContributionsEl = document.getElementById("totalContributions");
 const growthEl = document.getElementById("growth");
 const recommendationsEl = document.getElementById("recommendations");
+const gateEl = document.getElementById("confirm-gate");
+const gateInput = document.getElementById("gateInput");
+const gateButton = document.getElementById("gateButton");
+const gateError = document.getElementById("gateError");
 
 let chartInstance = null;
 
@@ -97,6 +101,32 @@ plannerForm.addEventListener("submit", (e) => {
     emptyStateEl.classList.add("hidden");
     renderChart(labels, portfolioValues, contributionCumulative, fvTarget);
 });
+
+// Confirmation gate logic
+function setGateState(enabled) {
+    if (gateButton) gateButton.disabled = !enabled;
+}
+
+function closeGate() {
+    if (!gateEl) return;
+    gateEl.classList.add("hidden");
+}
+
+if (gateInput && gateButton) {
+    gateInput.addEventListener("input", () => {
+        const ok = gateInput.value.trim() === "Confirm";
+        setGateState(ok);
+        gateError.textContent = ok ? "" : "";
+    });
+    gateButton.addEventListener("click", () => {
+        const ok = gateInput.value.trim() === "Confirm";
+        if (ok) {
+            closeGate();
+        } else {
+            gateError.textContent = 'Please type "Confirm" exactly to proceed.';
+        }
+    });
+}
 
 function showEmpty(message) {
     emptyStateEl.textContent = message;

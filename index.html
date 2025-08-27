@@ -10,6 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="confirm-gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" aria-describedby="gateDesc">
+        <div class="gate-card">
+            <h2 id="gateTitle">Advisory Confirmation</h2>
+            <p id="gateDesc">This tool is for educational purposes only and is not financial advice. Use your own discretion and judgement.</p>
+            <p>Type <strong>Confirm</strong> to proceed.</p>
+            <div class="gate-input">
+                <input id="gateInput" type="text" placeholder="Type Confirm" autocomplete="off" />
+                <button id="gateButton" class="primary" disabled>Continue</button>
+            </div>
+            <div id="gateError" class="gate-error" aria-live="polite"></div>
+        </div>
+    </div>
     <header class="container">
         <h1>Goal Planner</h1>
         <p class="subtitle">Plan investments to reach your goals: first car, vacation, and more.</p>
