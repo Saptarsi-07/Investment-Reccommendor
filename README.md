@@ -8,34 +8,38 @@ A simple, static website that helps users plan investments to achieve goals like
 - Assumptions for expected annual return and inflation
 - Breakdown of required contributions vs. expected portfolio growth
 - Interactive chart of expected value over time
+- Advisory confirmation gate (type "Confirm" to proceed)
 - Works entirely in the browser (no backend)
 
 ### Quick Start
 1. Open `index.html` in any modern browser.
-2. Fill in your goal details and assumptions.
-3. Click "Calculate Plan" to see recommended contributions and the growth chart.
+2. At the advisory prompt, type `Confirm` and click Continue.
+3. Fill in your goal details and assumptions.
+4. Click "Calculate Plan" to see recommended contributions and the growth chart.
 
 ### Detailed Usage
 1. Open the website
    - Double-click `index.html` or use a static server.
    - Optional: run a local server for better file access restrictions:
      - Python 3: `python3 -m http.server 8080` then visit `http://localhost:8080`.
-2. Enter goal details
+2. Confirm the advisory
+   - A full-screen prompt appears. Type `Confirm` exactly and press Continue.
+3. Enter goal details
    - Goal name: e.g., "First Car" or "Hawaii Trip".
    - Target amount: how much you need in future currency.
    - Time horizon: years until the goal.
    - Current savings: what you have today toward this goal.
-3. Set assumptions
+4. Set assumptions
    - Expected annual return: average % return of your investments.
    - Annual inflation: to adjust target to future value (optional; set to 0 to ignore).
    - Contribution frequency: monthly (default) or weekly.
-4. Calculate
+5. Calculate
    - Click "Calculate Plan".
    - The app will:
      - Inflate the target amount to the goal date using the inflation rate.
      - Compute the required periodic contribution to reach the goal given the expected return.
      - Show a recommended plan and a chart of expected portfolio value over time.
-5. Interpret results
+6. Interpret results
    - "Required contribution" is the periodic amount to reach the inflation-adjusted target.
    - If the current savings alone are sufficient (given growth), it will reflect a $0 required contribution.
    - The chart includes the contribution schedule and investment growth.
@@ -72,5 +76,3 @@ python3 -m http.server 8080
 
 ### License
 MIT
-
-# Investment-Reccommendor
